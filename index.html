@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html  >
+<title>Aldama Opina</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+.myLink {display: none}
+</style>
+<body class="w3-light-grey">
+
+<!-- Navigation Bar -->
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a target="_blank" href="https://www.facebook.com/ElPueblodeAldamaOpina/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b>El Pueblo de Aldama Opina</b></a>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+  <img class="w3-image" src="images/bienvenido-aldama.png" alt="El Pueblo de Aldama Opina" width="1500" height="700">
+  <div class="w3-display-middle" style="width:65%">
+    <div class="w3-bar w3-black">
+      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'aldama-opina');">OPINA</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openLink(location.href='https://www.facebook.com/ElPueblodeAldamaOpina');">Facebook</button>
+ 
+    </div>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" ></iframe>
+    <!-- Tabs -->
+    <div id="aldama-opina" class="w3-container w3-white w3-padding-16 myLink">
+      <h3>El Pueblo de Aldama Opina</h3>
+		<form name="aldama-opina"		action="https://docs.google.com/forms/u/3/d/e/1FAIpQLSeW5IHIQ9KnQrWriwWhmoB0bFLEeeOlXeavL2Y9VEPtZ3TZyA/formResponse" target="hidden_iframe">
+      <p><textarea id="aldamense-opinion" rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Deja tu opinión aquí..." required name="entry.1488915568" oninvalid="this.setCustomValidity('Aquí dejas tu opinión')"></textarea></p>
+      <p><button class="w3-button w3-black w3-padding-large" onclick="submitForm()">CLICK PARA MANDAR OPINIÓN</button> <button class="w3-button w3-black w3-padding-large" type="reset">BORRAR</button></p>
+	  <script>
+	  function submitForm() {
+   // Get the first form with the name
+   // Usually the form name is not repeated
+   // but duplicate names are possible in HTML
+   // Therefore to work around the issue, enforce the correct index
+   var frm = document.getElementsByName('aldama-opina')[0];
+   var input = document.getElementById('aldamense-opinion');
+
+if(input.value.length > 0){
+   window.alert("Tu opinión ha sido enviada. Será publicada en breve en la página");
+   frm.submit(); // Submit the form
+   frm.reset();  // Reset all form data
+   return false; // Prevent page refresh
+   }
+
+}
+	  </script>
+
+    </form>
+
+    </div>
+
+
+  </div>
+</header>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+  <h5>El Pueblo de Aldama Opina</h5>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+
+<script>
+// Tabs
+function openLink(evt, linkName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("myLink");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(linkName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+
+// Click on the first tablink on load
+document.getElementsByClassName("tablink")[0].click();
+
+
+
+
+</script>
+
+</body>
+</html>
